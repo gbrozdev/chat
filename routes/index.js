@@ -7,32 +7,6 @@ var ObjectId = require('mongodb').ObjectId
 router.get('/', async function (req, res) {
   res.render('index');
 });
-router.get('/demo', async function (req, res) {
-  var axios = require("axios").default;
-
-var options = {
-  method: 'GET',
-  url: 'https://climate-change-live1.p.rapidapi.com/news/guardian',
-  headers: {
-    'x-rapidapi-host': 'climate-change-live1.p.rapidapi.com',
-    'x-rapidapi-key': 'cdb0dbdf68msh6e03439f69f86dep10f7dfjsn39ee290d53e2'
-  }
-};
-
-axios.request(options).then(function (response) {
-	console.log(response.data);
-  
-  let array = [];
-  array = response.data
-  
-  res.render('demo',{array});
-
-
-}).catch(function (error) {
-	console.error(error);
-});
-
-});
 
 
 router.get('/like/:id',async(req,res)=>{
